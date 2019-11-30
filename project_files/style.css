@@ -16,7 +16,8 @@ body {
     text-align: center;
 }
 
-.box input[type = "text"], .box input[type = "password"] {
+.box input[type="text"],
+.box input[type="password"] {
     border: 0;
     background: none;
     display: block;
@@ -32,7 +33,8 @@ body {
     user-select: none;
 }
 
-.box input[type = "text"]:focus, .box input[type = "password"]:focus {
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
     width: 280px;
     border-color: #5E6572;
 }
@@ -55,4 +57,88 @@ body {
 
 .box .submit:hover {
     background: #5E6572;
+}
+
+.searchCard {
+    box-shadow: 0 5px 10px 0 #5E6572;
+    transition: 0.3s;
+    border-radius: 10px;
+    background-color: #EEF1EF;
+    margin-top: 2%;
+    width: fit-content;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.deckCard {
+    box-shadow: 0 5px 10px 0 #5E6572;
+    transition: 0.3s;
+    border-radius: 10px;
+    background-color: #EEF1EF;
+    margin-top: 2%;
+    width: 80%;
+    height: fit-content;
+    margin-left: 10%;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px 0 #5E6572;
+}
+
+.card .cardcontainer {
+    padding: 5px 15px;
+}
+
+.deckCard img {
+    border-radius: 10px 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block
+}
+
+.deckCardDetailContainer,
+.cardQuantityContainer {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5%;
+}
+
+.deckCardDetailContainer {
+    width: 50%;
+}
+
+.cardQuantityContainer {
+    height: 90%;
+    margin-top: 5%;
+    align-content: center;
+}
+
+.manaCost,
+.cardType,
+.cardDescription {
+    margin-bottom: 5%;
+    width: 75%
+}
+
+.cardName {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.quantityNum {
+    display: inline-block;
+    width: 1005
+}
+
+.addQuantityBtn,
+.removeQuantityBtn {
+    margin-top: 10%;
+    width: 150px;
+    padding: 10px;
+    background-color: #5E6572;
+    color: #EEF1EF;
+    text-decoration: none;
+    display: block;
+    top: 0
 }
