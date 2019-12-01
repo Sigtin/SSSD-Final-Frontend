@@ -16,27 +16,29 @@
             <a class="dropbtn" href="home.html">Home</a>
         </div>
         <div class="dropdown navlink">
-            <a class="dropbtn" href="deck_list.html">Decks 
-                                            <i class="fas fa-caret-down"></i>
-                                        </a>
-            <div class="dropdowncontent">
-                <a href="deck.html">Deck1</a>
-                <a href="#">Deck2</a>
-                <a href="#">Deck3</a>
-                <a href="#">Deck4</a>
+            <a class="dropbtn" href="deck_list.html">Decks
+                <i class="fas fa-caret-down"></i>
+            </a>
+            <div id="dropdowncontent">
+
             </div>
         </div>
         <div class="dropdown navlink">
-            <div class="dropbtn">Log Out</div>
+            <form class="dropbtn" action="http://localhost/SSSD-Final/SSSD-Final-Backend/project_files/logout.php" method="POST">
+                <input class="dropbtn" type="submit" value="Log out"/>
+            </form>
         </div>
     </nav>
     <div class="searchCard">
         <div class="cardcontainer">
             <h2>Sword of Light and Shadow</h2>
-            <br/>
+            <br />
             <img src="https://media.wizards.com/2016/bVvMNuiu2i_KLD/en_g2UfOun34M.png" alt="">
         </div>
     </div>
+
+
+    <script src="../scripts/script.js"></script>
 </body>
 
 </html>

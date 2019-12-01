@@ -158,7 +158,6 @@ body {
 .dropdown {
     float: none;
     overflow: hidden;
-    display: inline-block;
 }
 
 .dropdown .dropbtn {
@@ -181,7 +180,7 @@ nav div:hover,
     background-color: #A9B4C2;
 }
 
-.dropdowncontent {
+#dropdowncontent {
     display: none;
     position: absolute;
     background-color: #A9B4C2;
@@ -190,7 +189,7 @@ nav div:hover,
     z-index: 1;
 }
 
-.dropdowncontent a {
+#dropdowncontent a {
     float: none;
     color: #EEF1EF;
     padding: 12px 16px;
@@ -199,17 +198,18 @@ nav div:hover,
     text-align: left;
 }
 
-.dropdowncontent a:hover {
+#dropdowncontent a:hover {
     background-color: #A9B4C2;
 }
 
-.dropdown:hover .dropdowncontent {
+.dropdown:hover #dropdowncontent {
     display: block;
 }
 
 .navlink {
     margin: 2%;
     font-size: 26px;
+    display: inline-block;
 }
 
 nav {
