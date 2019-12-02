@@ -43,6 +43,10 @@ const app = {
                     deck.appendChild(numberOfCards);
 
                     deckList.appendChild(deck);
+
+                    deck.addEventListener("click", () => {
+                        window.location.href = `http://localhost/SSSD-Final/SSSD-Final-Frontend/project_files/pages/deck.html?id=${data.decks[i].id}`;
+                    })
                 }
             })
             .catch(e => console.log(e));
