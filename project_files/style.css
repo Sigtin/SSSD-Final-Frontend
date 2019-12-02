@@ -81,7 +81,7 @@ body {
     margin-left: 10%;
 }
 
-.deckListCard {
+#deckListCard {
     box-shadow: 0 5px 10px 0 #5E6572;
     transition: 0.3s;
     border-radius: 10px;
