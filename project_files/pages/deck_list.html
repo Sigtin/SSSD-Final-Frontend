@@ -30,13 +30,14 @@
     </nav>
     <div class='newDeckContainer'>
         <form action="http://localhost/SSSD-Final/SSSD-Final-Backend/project_files/create_deck.php" method="POST">
-            <input type="text" class='newDeckName' name="deckname" placeholder="Name of Deck">
+            <input type="text" class='newDeckName' name="deckname" placeholder="Name of Deck" />
+            <input type="hidden" name="game" value="Magic: the Gathering" />
             <input type="submit" class="newDeckBtn" value="Create New Deck" />
         </form>
 
     </div>
     <div id="deck_list">
-        
+
     </div>
 
     <script src="../scripts/script.js"></script>

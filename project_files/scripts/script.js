@@ -7,7 +7,7 @@ const app = {
         fetch(app.BASE_URL + "get_decks.php")
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
 
                 let dropdown = document.getElementById('dropdowncontent');
 
@@ -59,35 +59,45 @@ const app = {
         // console.log("searching");
         var searchbar = document.getElementById('searchBar');
         // console.log(searchbar.value);
-        var results = [];
         if (searchbar.value != null && searchbar.value.trim != "") {
-            fetch(`https://api.magicthegathering.io/v1/cards/${searchbar.value}`, {
-                method: 'GET'
-            }).then(response => response.json()).then(json => {
-                for (var j = 0; j < json.cards.length; j++) {
-                    results.push(json.cards[i]);
-                }
-            });
-        }
-        for (var i = 0; i < results.length; i++) {
-            var card = document.createElement('div');
-            card.classList('searchCard');
-            card.addEventListener('click', searchCardModalPopUp);
-            var container = document.createElement('div');
-            container.classList('cardContainer');
-            var name = document.createElement('h2');
-            name.classList('searchCardName');
-            name.innerHTML = results[i].name;
-            var br = document.createElement('br');
-            var img = document.createElement('img');
-            img.src = results[i].imageUrl;
+            fetch(`https://api.magicthegathering.io/v1/cards?name=${searchbar.value}`)
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
 
-            container.appendChild(name);
-            container.appendChild(br);
-            container.appendChild(img);
-            card.appendChild(container);
-            document.appendChild(card);
+                    let cardsContainer = document.getElementById("cards");
+                    cardsContainer.children = null;
+                    for (var i = 0; i < json.cards.length; i++) {
+                        var card = document.createElement('div');
+                        card.classList = 'searchCard';
+                        // card.addEventListener('click', searchCardModalPopUp);
+
+                        var container = document.createElement('div');
+                        container.classList = 'cardContainer';
+
+                        var name = document.createElement('h2');
+                        name.classList = 'searchCardName';
+                        name.innerHTML = json.cards[i].name;
+
+                        var br = document.createElement('br');
+
+                        var img = document.createElement('img');
+
+                        if (json.cards[i].imageUrl) {
+                            img.src = json.cards[i].imageUrl;
+                        } else {
+                            img.src = "https://i.redd.it/qnnotlcehu731.jpg";
+                        }
+                        
+                        container.appendChild(name);
+                        container.appendChild(br);
+                        container.appendChild(img);
+                        card.appendChild(container);
+                        cardsContainer.appendChild(card);
+                    }
+                });
         }
+
     },
 
     search_deck: () => {
@@ -157,7 +167,7 @@ const app = {
             app.get_decks_for_list();
         }
         if (document.getElementById("searchBar")) {
-            document.getElementById("searchBar").addEventListener('keypress', app.search_mtg_api);
+            document.getElementById("searchBar").addEventListener('keyup', app.search_mtg_api);
         }
     }
 }
