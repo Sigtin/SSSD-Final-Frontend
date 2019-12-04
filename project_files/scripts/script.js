@@ -26,9 +26,10 @@ const app = {
         fetch(app.BASE_URL + "get_decks.php")
             .then(response => response.json())
             .then(data => {
+                let deck_list = document.getElementById("deck_list");
                 for (let i = 0; i < data.decks.length; i++) {
                     let deckList = document.createElement('div');
-                    deckList
+                    deckList.id = "deckListCard";
                     let deck = document.createElement("div");
                     deck.classList = "cardcontainer";
 
@@ -39,7 +40,7 @@ const app = {
 
                     let numberOfCards = document.createElement("h3");
                     numberOfCards.classList = "numOfCards";
-                    numberOfCards.innerText = data.decks[i].cardlist.length;
+                    numberOfCards.innerText = `Number of Cards: ${data.decks[i].cardlist.length}`;
                     deck.appendChild(numberOfCards);
 
                     deckList.appendChild(deck);
@@ -47,6 +48,8 @@ const app = {
                     deck.addEventListener("click", () => {
                         window.location.href = `http://localhost/SSSD-Final/SSSD-Final-Frontend/project_files/pages/deck.html?id=${data.decks[i].id}`;
                     })
+
+                    deck_list.appendChild(deckList);
                 }
             })
             .catch(e => console.log(e));
@@ -144,7 +147,7 @@ const app = {
             app.get_decks_for_nav();
         }
 
-        if (document.getElementById("deckListCard")) {
+        if (document.getElementById("deck_list")) {
             app.get_decks_for_list();
         }
         if (document.getElementById("searchBar")) {
