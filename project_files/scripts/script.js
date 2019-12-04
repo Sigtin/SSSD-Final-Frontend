@@ -61,20 +61,26 @@ const app = {
         // console.log(searchbar.value);
         var results = [];
         if (searchbar.value != null && searchbar.value.trim != "") {
-            
+            fetch(`https://api.magicthegathering.io/v1/cards/${searchbar.value}`, {
+                method: 'GET'
+            }).then(response => response.json()).then(json => {
+                for (var j = 0; j < json.cards.length; j++) {
+                    results.push(json.cards[i]);
+                }
+            });
         }
         for (var i = 0; i < results.length; i++) {
             var card = document.createElement('div');
             card.classList('searchCard');
-            card.addEventListener('onclick', searchCardModalPopUp);
+            card.addEventListener('click', searchCardModalPopUp);
             var container = document.createElement('div');
             container.classList('cardContainer');
             var name = document.createElement('h2');
             name.classList('searchCardName');
-            name.innerHTML = 'CARDNAME';
+            name.innerHTML = results[i].name;
             var br = document.createElement('br');
             var img = document.createElement('img');
-            img.src = 'IMAGEURL';
+            img.src = results[i].imageUrl;
 
             container.appendChild(name);
             container.appendChild(br);
