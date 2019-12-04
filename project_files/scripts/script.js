@@ -152,63 +152,6 @@ const app = {
         }
     },
 
-    search_deck: () => {
-        var results = [];
-        for (var i = 0; i < results.length; i++) {
-            var card = document.createElement('div');
-            card.classList('deckCard');
-            var container = document.createElement('div');
-            container.classList('cardContainer');
-            var name = document.createElement('h2');
-            name.classList('deckCardName');
-            name.innerHTML = 'CARDNAME';
-            var br = document.createElement('br');
-            var img = document.createElement('img');
-            img.src = 'IMAGEURL';
-
-            var detailContainer = document.createElement('div');
-            detailContainer.classList('deckCardDetailContainer');
-            var manaCost = document.createElement('div');
-            manaCost.classList('manaCost');
-            manaCost.innerText = 'Mana Cost: ' + 'MANACOST';
-            var cardType = document.createElement('div');
-            cardType.classList('cardType');
-            cardType.innerText = 'Card Type: ' + 'CARDTYPE';
-            var cardDescription = document.createElement('div');
-            cardDescription.classList('cardDescription');
-            cardDescription.innerText = 'Description: ' + 'DESCRIPTION';
-            detailContainer.appendChild(manaCost);
-            detailContainer.appendChild(cardType);
-            detailContainer.appendChild(cardDescription);
-
-            var cardQuantityContainer = document.createElement('div');
-            cardQuantityContainer.classList('cardQuantityContainer');
-            var quantityNum = document.createElement('div');
-            quantityNum.classList('quantityNum');
-            quantityNum.innerText = 'Quantity: ' + 'QUANTITY';
-            var addQuantityBtn = document.createElement('div');
-            addQuantityBtn.classList('addQuantityBtn');
-            addQuantityBtn.innerText = 'Add';
-            addQuantityBtn.addEventListener('onclick', AddCard);
-            var removeQuantityBtn = document.createElement('div');
-            removeQuantityBtn.classList('removeQuantityBtn');
-            removeQuantityBtn.innerText = 'Remove';
-            removeQuantityBtn.addEventListener('onclick', RemoveCard);
-            cardQuantityContainer.appendChild(quantityNum);
-            cardQuantityContainer.appendChild(addQuantityBtn);
-            cardQuantityContainer.appendChild(removeQuantityBtn);
-
-            container.appendChild(name);
-            container.appendChild(br);
-            container.appendChild(img);
-            container.appendChild(detailContainer);
-            card.appendChild(container);
-            document.appendChild(card);
-        }
-    },
-
-
-
     // Initiation method that gets called on script call
     init: () => {
         if (document.getElementById("dropdowncontent")) {
