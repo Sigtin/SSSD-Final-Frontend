@@ -52,12 +52,12 @@ const app = {
             .catch(e => console.log(e));
     },
 
-    search_mtg_api: input => {
-        if (input) {
-
-        } else {
-
-        }
+    search_mtg_api: () => {
+        // if () {
+            // if the search bar had text in it, do this
+        // } else {
+            // else search via top # instead of by name
+        // }
     },
 
 
