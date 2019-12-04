@@ -259,13 +259,12 @@ nav {
     text-align: center;
     color: #EEF1EF;
     background-color: #5E6572;
-    padding-top: 15px;
     display: inline-block;
 }
 
 .newDeckBtn {
-    width: 30%;
-    height: 50px;
+    padding: 10px;
+    height: 60px;
     border-radius: 15px;
     margin-top: 50px;
     margin-left: 5%;
@@ -273,6 +272,7 @@ nav {
     text-align: center;
     color: #EEF1EF;
     background-color: #5E6572;
-    padding-top: 15px;
     display: inline-block;
+    border-style: none;
+    cursor: pointer;
 }
