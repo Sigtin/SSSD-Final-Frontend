@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="../style.css" rel="stylesheet" type="text/css">
-    <title>Deck</title>
+    <title>Decks</title>
 </head>
 
 <body>
@@ -28,24 +28,15 @@
             </form>
         </div>
     </nav>
-    <div id='deckName'>
+    <div class='newDeckContainer'>
+        <form action="http://localhost/SSSD-Final/SSSD-Final-Backend/project_files/create_deck.php" method="POST">
+            <input type="text" class='newDeckName' name="deckname" placeholder="Name of Deck">
+            <input type="submit" class="newDeckBtn" value="Create New Deck" />
+        </form>
+
     </div>
-    <div class="deckCard">
-        <div class="cardcontainer">
-            <h2 class="deckCardName">Sword of Light and Shadow</h2>
-            <br />
-            <img src="https://media.wizards.com/2016/bVvMNuiu2i_KLD/en_g2UfOun34M.png" alt="">
-            <div class='deckCardDetailContainer'>
-                <div class='manaCost'>Mana Cost: 3</div>
-                <div class='cardType'>Type: Artifact - Equipment</div>
-                <div class='cardDescription'>Description: this is a test Description for a test card so does the content even fucking matter? answer nope so fuck you if you read all of this</div>
-            </div>
-            <div class='cardQuantityContainer'>
-                <div class='quantityNum'>Quantity: 1</div>
-                <div class='addQuantityBtn'>Add</div>
-                <div class='removeQuantityBtn'>Remove</div>
-            </div>
-        </div>
+    <div id="deck_list">
+        
     </div>
 
     <script src="../scripts/script.js"></script>

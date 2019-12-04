@@ -55,6 +55,68 @@ const app = {
             .catch(e => console.log(e));
     },
 
+    get_cards_for_deck: () => {
+        fetch(app.BASE_URL + "get_decks.php")
+            .then(response => response.json())
+            .then(data => {
+                let url = window.location.href;
+                let splitUrl = url.split('=');
+                let deckID = Number(splitUrl[1]);
+                let currentDeck = data.decks[deckID].cardlist;
+                for (var i = 0; i < currentDeck.length; i++) {
+                    var card = document.createElement('div');
+                    card.classList('deckCard');
+                    var container = document.createElement('div');
+                    container.classList('cardContainer');
+                    var name = document.createElement('h2');
+                    name.classList('deckCardName');
+                    name.innerHTML = currentDeck[i].name;
+                    var br = document.createElement('br');
+                    var img = document.createElement('img');
+                    img.src = currentDeck[i].imageUrl;
+
+                    var detailContainer = document.createElement('div');
+                    detailContainer.classList('deckCardDetailContainer');
+                    var manaCost = document.createElement('div');
+                    manaCost.classList('manaCost');
+                    manaCost.innerText = 'Mana Cost: ' + currentDeck[i].manaCost;
+                    var cardType = document.createElement('div');
+                    cardType.classList('cardType');
+                    cardType.innerText = 'Card Type: ' + currentDeck[i].type;
+                    var cardDescription = document.createElement('div');
+                    cardDescription.classList('cardDescription');
+                    cardDescription.innerText = 'Description: ' + currentDeck[i].oracleText;
+                    detailContainer.appendChild(manaCost);
+                    detailContainer.appendChild(cardType);
+                    detailContainer.appendChild(cardDescription);
+
+                    // var cardQuantityContainer = document.createElement('div');
+                    // cardQuantityContainer.classList('cardQuantityContainer');
+                    // var quantityNum = document.createElement('div');
+                    // quantityNum.classList('quantityNum');
+                    // quantityNum.innerText = 'Quantity: ' + 'QUANTITY';
+                    // var addQuantityBtn = document.createElement('div');
+                    // addQuantityBtn.classList('addQuantityBtn');
+                    // addQuantityBtn.innerText = 'Add';
+                    // addQuantityBtn.addEventListener('onclick', AddCard);
+                    var removeQuantityBtn = document.createElement('div');
+                    removeQuantityBtn.classList('removeQuantityBtn');
+                    removeQuantityBtn.innerText = 'Remove';
+                    removeQuantityBtn.addEventListener('onclick', RemoveCard);
+                    // cardQuantityContainer.appendChild(quantityNum);
+                    // cardQuantityContainer.appendChild(addQuantityBtn);
+                    cardQuantityContainer.appendChild(removeQuantityBtn);
+
+                    container.appendChild(name);
+                    container.appendChild(br);
+                    container.appendChild(img);
+                    container.appendChild(detailContainer);
+                    card.appendChild(container);
+                    document.appendChild(card);
+                }
+            }).catch(e => console.log(e));
+    },
+
     search_mtg_api: () => {
         // console.log("searching");
         var searchbar = document.getElementById('searchBar');
@@ -99,63 +161,6 @@ const app = {
         }
 
     },
-
-    search_deck: () => {
-        var results = [];
-        for (var i = 0; i < results.length; i++) {
-            var card = document.createElement('div');
-            card.classList('deckCard');
-            var container = document.createElement('div');
-            container.classList('cardContainer');
-            var name = document.createElement('h2');
-            name.classList('deckCardName');
-            name.innerHTML = 'CARDNAME';
-            var br = document.createElement('br');
-            var img = document.createElement('img');
-            img.src = 'IMAGEURL';
-
-            var detailContainer = document.createElement('div');
-            detailContainer.classList('deckCardDetailContainer');
-            var manaCost = document.createElement('div');
-            manaCost.classList('manaCost');
-            manaCost.innerText = 'Mana Cost: ' + 'MANACOST';
-            var cardType = document.createElement('div');
-            cardType.classList('cardType');
-            cardType.innerText = 'Card Type: ' + 'CARDTYPE';
-            var cardDescription = document.createElement('div');
-            cardDescription.classList('cardDescription');
-            cardDescription.innerText = 'Description: ' + 'DESCRIPTION';
-            detailContainer.appendChild(manaCost);
-            detailContainer.appendChild(cardType);
-            detailContainer.appendChild(cardDescription);
-
-            var cardQuantityContainer = document.createElement('div');
-            cardQuantityContainer.classList('cardQuantityContainer');
-            var quantityNum = document.createElement('div');
-            quantityNum.classList('quantityNum');
-            quantityNum.innerText = 'Quantity: ' + 'QUANTITY';
-            var addQuantityBtn = document.createElement('div');
-            addQuantityBtn.classList('addQuantityBtn');
-            addQuantityBtn.innerText = 'Add';
-            addQuantityBtn.addEventListener('onclick', AddCard);
-            var removeQuantityBtn = document.createElement('div');
-            removeQuantityBtn.classList('removeQuantityBtn');
-            removeQuantityBtn.innerText = 'Remove';
-            removeQuantityBtn.addEventListener('onclick', RemoveCard);
-            cardQuantityContainer.appendChild(quantityNum);
-            cardQuantityContainer.appendChild(addQuantityBtn);
-            cardQuantityContainer.appendChild(removeQuantityBtn);
-
-            container.appendChild(name);
-            container.appendChild(br);
-            container.appendChild(img);
-            container.appendChild(detailContainer);
-            card.appendChild(container);
-            document.appendChild(card);
-        }
-    },
-
-
 
     // Initiation method that gets called on script call
     init: () => {
