@@ -212,6 +212,10 @@ nav div:hover,
     display: block;
 }
 
+.dropdown form input[type="submit"] {
+    cursor: pointer;
+}
+
 .navlink {
     margin: 10px;
     font-size: 32px;
@@ -227,7 +231,7 @@ nav {
     height: 50px;
 }
 
-.searchBar {
+#searchBar {
     width: 30%;
     height: 50px;
     border-radius: 15px;

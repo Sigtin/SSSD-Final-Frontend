@@ -53,14 +53,12 @@ const app = {
     },
 
     search_mtg_api: () => {
-        console.log("searching");
-        var searchbar = document.getElementsByClassName('searchBar');
-        console.log(searchbar.value);
+        // console.log("searching");
+        var searchbar = document.getElementById('searchBar');
+        // console.log(searchbar.value);
         var results = [];
-        if (searchbar.value != null) {
-            //results = search for card by value
-        } else {
-            //results = search for card by id
+        if (searchbar.value != null && searchbar.value.trim != "") {
+            
         }
         for (var i = 0; i < results.length; i++) {
             var card = document.createElement('div');
@@ -149,8 +147,8 @@ const app = {
         if (document.getElementById("deckListCard")) {
             app.get_decks_for_list();
         }
-        if (document.getElementsByClassName("searchBar")) {
-            document.getElementsByClassName("searchBar").addEventListener('onkeypress', app.search_mtg_api());
+        if (document.getElementById("searchBar")) {
+            document.getElementById("searchBar").addEventListener('keypress', app.search_mtg_api);
         }
     }
 }
