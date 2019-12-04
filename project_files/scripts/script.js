@@ -53,7 +53,9 @@ const app = {
     },
 
     search_mtg_api: () => {
+        console.log("searching");
         var searchbar = document.getElementsByClassName('searchBar');
+        console.log(searchbar.value);
         var results = [];
         if (searchbar.value != null) {
             //results = search for card by value
@@ -146,6 +148,9 @@ const app = {
 
         if (document.getElementById("deckListCard")) {
             app.get_decks_for_list();
+        }
+        if (document.getElementsByClassName("searchBar")) {
+            document.getElementsByClassName("searchBar").addEventListener('onkeypress', app.search_mtg_api());
         }
     }
 }
