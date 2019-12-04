@@ -276,3 +276,11 @@ nav {
     border-style: none;
     cursor: pointer;
 }
+
+#deckName {
+    width: 40%;
+    text-align: center;
+    font-size: 48px;
+    margin-top: 50px;
+    margin-left: 30%;
+}
