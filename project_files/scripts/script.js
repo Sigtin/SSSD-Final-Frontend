@@ -52,6 +52,14 @@ const app = {
             .catch(e => console.log(e));
     },
 
+    search_mtg_api: input => {
+        if (input) {
+
+        } else {
+
+        }
+    },
+
 
 
     // Initiation method that gets called on script call
@@ -65,5 +73,6 @@ const app = {
         }
     }
 }
+
 
 app.init();
