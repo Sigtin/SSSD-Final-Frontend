@@ -103,18 +103,13 @@ body {
     padding: 5px 15px;
 }
 
-.deckCard img {
-    border-radius: 10px 10px;
-    margin-bottom: 10px;
-    padding-left: 5%;
-    display: inline-block;
-}
-
+.deckCard img,
 .searchCard img {
     border-radius: 10px 10px;
     margin-bottom: 10px;
     padding-left: 5%;
-    width: 90%;
+    width: 126px;
+    height: 166px;
     display: inline-block;
 }
 
